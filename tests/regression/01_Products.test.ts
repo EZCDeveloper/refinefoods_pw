@@ -1,18 +1,15 @@
-import { test, expect } from '@playwright/test';
-import { BasePage } from '../../support/pages/base.page';
-import { ProductPage } from '../../support/pages/product.page';
+import { test  } from '../../fixtures/myFixtures/allFixtures';
+import { expect } from '@playwright/test';
+
 
 test.describe('TS01_Products', () => {
     
-    test.beforeEach(async ({ page }) => {
-        const basePage = new BasePage(page);
+    test.beforeEach(async ({ basePage }) => {
         await basePage.navigateTo('products');
-        await basePage.waitForPageLoad();
     })
 
 
-    test("TC01. Create a Product Successfully", async ({page}) => {
-        const productPage = new ProductPage(page);
+    test("TC01. Create a Product Successfully", async ({productPage}) => {
         await productPage.createProduct(
             'fixtures/images/wp1813257.jpg', 
             'The Big piza', 
