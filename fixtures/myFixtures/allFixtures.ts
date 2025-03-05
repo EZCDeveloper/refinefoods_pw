@@ -9,6 +9,7 @@ type PageFixtures = {
 }
 
 export const test = baseTest.extend<PageFixtures>({
+    /*-- Page Fixtures --*/
     basePage: async ({ page }, use) => {
         const basePage = new BasePage(page);
         await use(basePage);

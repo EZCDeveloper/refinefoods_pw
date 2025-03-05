@@ -1,3 +1,4 @@
+import { URL } from '../../fixtures/data/url-data';
 import { test  } from '../../fixtures/myFixtures/allFixtures';
 import { expect } from '@playwright/test';
 
@@ -5,9 +6,8 @@ import { expect } from '@playwright/test';
 test.describe('TS01_Products', () => {
     
     test.beforeEach(async ({ basePage }) => {
-        await basePage.navigateTo('products');
+        await basePage.navigateTo(URL.PRODUCTS);
     })
-
 
     test("TC01. Create a Product Successfully", async ({productPage}) => {
         await productPage.createProduct(
@@ -19,5 +19,4 @@ test.describe('TS01_Products', () => {
         const message = await productPage.getMessage();
         await expect(message).toContainText('Successfully created Products');
     })
-    
 })
