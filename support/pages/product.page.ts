@@ -15,6 +15,7 @@ export class ProductPage {
     private availableButton: Locator;
     private saveButton: Locator;
     private successNotification: Locator;
+    private errorNotification: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -31,6 +32,7 @@ export class ProductPage {
         this.availableButton = page.getByRole('button', { name: 'Available', exact: true });
         this.saveButton = page.getByRole('button', { name: 'Save' });
         this.successNotification = page.locator('#notistack-snackbar');
+        this.errorNotification = page.getByText('This field is required');
     }
 
     async clickAddNewProduct() {
@@ -79,22 +81,24 @@ export class ProductPage {
         return this.successNotification
     }
 
-    async createProduct(product:
-        {
-            IMAGE_PATH: string,
-            NAME: string,
-            DESCRIPTION: string,
-            PRICE: string
-        }
-    ) {
+    async createProduct(product: {
+        IMAGE_PATH?: string;
+        NAME?: string;
+        DESCRIPTION?: string;
+        PRICE?: string;
+    }) {
         await this.clickAddNewProduct();
         await this.clickUploadImage();
-        await this.uploadImage(product.IMAGE_PATH);
-        await this.fillProductName(product.NAME);
-        await this.fillProductDescription(product.DESCRIPTION);
-        await this.fillProductPrice(product.PRICE);
+        if (product.IMAGE_PATH) await this.uploadImage(product.IMAGE_PATH);
+        if (product.NAME) await this.fillProductName(product.NAME);
+        if (product.DESCRIPTION) await this.fillProductDescription(product.DESCRIPTION);
+        if (product.PRICE) await this.fillProductPrice(product.PRICE);
         await this.selectCategory();
         await this.setAvailableStatus();
         await this.saveProduct();
+    }
+    
+    async getErrorMessage() {
+        return this.errorNotification
     }
 }

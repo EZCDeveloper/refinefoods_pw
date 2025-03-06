@@ -18,4 +18,17 @@ test.describe('TS01_Products', () => {
         const message = await productPage.getMessage();
         await expect(message).toContainText(TEST_COPY.MESSAGES.PRODUCT_CREATED_SUCCESS);
     })
+
+    test("TC02. Fail to Create a Product: product name is empty", async ({productPage}) => {
+        const productWithoutName = {
+            ...TEST_DATA.PRODUCT,
+            NAME: "" // We omit the name
+        };
+    
+        await productPage.createProduct(productWithoutName); 
+
+        const message = await productPage.getErrorMessage();
+        await expect(message).toContainText(TEST_COPY.MESSAGES.PRODUCT_NAME_REQUIRED);
+
+    })
 })

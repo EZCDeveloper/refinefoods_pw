@@ -10,6 +10,7 @@ export const TEST_COPY = {
   },
   MESSAGES: {
     PRODUCT_CREATED_SUCCESS: 'Successfully created Products',
+    PRODUCT_NAME_REQUIRED: 'This field is required',
   },
   LABELS: {
     EMAIL: 'Email',
