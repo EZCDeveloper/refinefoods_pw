@@ -9,13 +9,7 @@ export const TEST_COPY = {
     DELIVERY_ADDRESS: 'Delivery Address'
   },
   MESSAGES: {
-    LOGIN_SUCCESS: 'Successfully logged in',
-    ORDER_SUCCESS: 'Your order has been placed successfully',
-    VALIDATION: {
-      REQUIRED_FIELD: 'This field is required',
-      INVALID_EMAIL: 'Please enter a valid email address',
-      INVALID_PASSWORD: 'Password must be at least 8 characters long'
-    }
+    PRODUCT_CREATED_SUCCESS: 'Successfully created Products',
   },
   LABELS: {
     EMAIL: 'Email',

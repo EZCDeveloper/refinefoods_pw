@@ -79,18 +79,20 @@ export class ProductPage {
         return this.successNotification
     }
 
-    async createProduct(
-        imagePath: string, 
-        name: string, 
-        description: string, 
-        price: string
+    async createProduct(product:
+        {
+            IMAGE_PATH: string,
+            NAME: string,
+            DESCRIPTION: string,
+            PRICE: string
+        }
     ) {
         await this.clickAddNewProduct();
         await this.clickUploadImage();
-        await this.uploadImage(imagePath);
-        await this.fillProductName(name);
-        await this.fillProductDescription(description);
-        await this.fillProductPrice(price);
+        await this.uploadImage(product.IMAGE_PATH);
+        await this.fillProductName(product.NAME);
+        await this.fillProductDescription(product.DESCRIPTION);
+        await this.fillProductPrice(product.PRICE);
         await this.selectCategory();
         await this.setAvailableStatus();
         await this.saveProduct();

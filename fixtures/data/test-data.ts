@@ -7,31 +7,10 @@ export const TEST_DATA = {
     INVALID_EMAIL: 'invalid@example.com',
     INVALID_PASSWORD: 'wrongpassword'
   },
-  RESTAURANT: {
-    SEARCH_CITY: 'Buenos Aires',
-    SEARCH_TERM: 'Pizza',
-    FIRST_RESTAURANT_NAME: 'Example Restaurant',
-    CUISINE_TYPES: ['Italian', 'Chinese', 'Mexican']
+  PRODUCT: {
+    NAME: 'The Big Piza',
+    IMAGE_PATH: 'fixtures/images/wp1813257.jpg',
+    DESCRIPTION:'Delicious Pizza with peperoni',
+    PRICE: "15",
   },
-  CART: {
-    ITEM_NAME: 'Margherita Pizza',
-    QUANTITY: 2,
-    MULTIPLE_ITEMS: [
-      { name: 'Margherita Pizza', quantity: 1 },
-      { name: 'Pepperoni Pizza', quantity: 1 }
-    ]
-  },
-  PROFILE: {
-    NEW_NAME: 'Updated User',
-    NEW_EMAIL: 'updated.user@example.com'
-  },
-  CHECKOUT: {
-    DELIVERY_ADDRESS: {
-      STREET: '123 Test Street',
-      CITY: 'Test City',
-      STATE: 'TS',
-      ZIP: '12345'
-    },
-    PAYMENT_METHOD: 'Credit Card'
-  }
 };
