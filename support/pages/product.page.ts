@@ -83,7 +83,6 @@ export class ProductPage {
         }
     }
 
-
     async saveProduct() {
         await this.saveButton.click();
     }
