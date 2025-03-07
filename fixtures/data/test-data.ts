@@ -1,6 +1,23 @@
 /*-- Test Data TEMPLATE for Use in Tests --*/
 
-export const TEST_DATA = {
+// Interface for Test Data
+export interface TestData {
+    USER: {
+        EMAIL: string;
+        PASSWORD: string;
+        INVALID_EMAIL: string;
+        INVALID_PASSWORD: string;
+    };
+    PRODUCT: {
+        NAME: string;
+        IMAGE_PATH: string;
+        DESCRIPTION: string;
+        PRICE: string;
+    };
+}
+
+
+export const TEST_DATA : TestData = {
   USER: {
     EMAIL: process.env.TEST_USER_EMAIL || 'testuser@example.com',
     PASSWORD: process.env.TEST_USER_PASSWORD || 'testpassword123',

@@ -1,4 +1,6 @@
 import { Page, Locator, expect } from '@playwright/test';
+import { TestData } from '../../fixtures/data/test-data';
+
 
 export class ProductPage {
     private page: Page;
@@ -81,12 +83,7 @@ export class ProductPage {
         return this.successNotification
     }
 
-    async createProduct(product: {
-        IMAGE_PATH?: string;
-        NAME?: string;
-        DESCRIPTION?: string;
-        PRICE?: string;
-    }) {
+    async createProduct(product: TestData['PRODUCT']) {
         await this.clickAddNewProduct();
         await this.clickUploadImage();
         if (product.IMAGE_PATH) await this.uploadImage(product.IMAGE_PATH);
