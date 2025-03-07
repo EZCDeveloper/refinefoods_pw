@@ -14,7 +14,6 @@ export class ProductPage {
     private priceInput: Locator;
     private categoryDropdown: Locator;
     private pizzasCategoryOption: Locator;
-    private availableButton: Locator;
     private saveButton: Locator;
     private successNotification: Locator;
     private errorNotification: Locator;
@@ -33,7 +32,6 @@ export class ProductPage {
         this.priceInput = page.getByRole('spinbutton', { name: 'Price' });
         this.categoryDropdown = page.getByRole('combobox', { name: 'Category' });
         this.pizzasCategoryOption = page.getByRole('option', { name: '🍕 Pizzas' });
-        this.availableButton = page.getByRole('button', { name: 'Available', exact: true });
         this.saveButton = page.getByRole('button', { name: 'Save' });
         this.successNotification = page.locator('#notistack-snackbar');
         this.errorNotification = page.getByText('This field is required');
@@ -91,7 +89,7 @@ export class ProductPage {
         return this.successNotification
     }
 
-    async createProduct(product: TestData['PRODUCT'], status: "Available" | "Unavailable") {
+    async createProduct(product: TestData['PRODUCT'], status: 'Available' | 'Unavailable') {
         await this.clickAddNewProduct();
         await this.clickUploadImage();
         if (product.IMAGE_PATH) await this.uploadImage(product.IMAGE_PATH);

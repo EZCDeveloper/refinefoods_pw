@@ -24,7 +24,7 @@ test.describe('TS01_Products', () => {
             NAME: "" // We omit the name
         };
 
-        await productPage.createProduct(productWithoutName, "Available");
+        await productPage.createProduct(productWithoutName, TEST_COPY.STATUS.AVAILABLE);
 
         const message = await productPage.getErrorMessage();
         await expect(message).toContainText(TEST_COPY.MESSAGES.PRODUCT_NAME_REQUIRED);
