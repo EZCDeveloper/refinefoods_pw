@@ -2,19 +2,19 @@
 
 // Interface for Test Data
 export interface TestData {
-  PRODUCT: {
-    NAME: string;
-    IMAGE_PATH: string;
-    DESCRIPTION: string;
-    PRICE: string;
+  product: {
+    name: string;
+    imagePath: string;
+    description: string;
+    price: string;
   };
 }
 
 export const TEST_DATA: TestData = {
-  PRODUCT: {
-    NAME: 'The Big Piza',
-    IMAGE_PATH: 'fixtures/images/wp1813257.jpg',
-    DESCRIPTION: 'Delicious Pizza with peperoni',
-    PRICE: "15",
+  product: {
+    name: 'The Big Pizza',
+    imagePath: 'fixtures/images/wp1813257.jpg',
+    description: 'Delicious Pizza with pepperoni',
+    price: "15",
   },
 };

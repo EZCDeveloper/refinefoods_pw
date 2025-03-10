@@ -12,7 +12,7 @@ test.describe('TS01_Products', () => {
     })
 
     test("TC01. Create a Product Successfully", async ({ productPage }) => {
-        await productPage.createProduct(TEST_DATA.PRODUCT, "Available");
+        await productPage.createProduct(TEST_DATA.product, TEST_COPY.STATUS.AVAILABLE);
 
         const message = await productPage.getMessage();
         await expect(message).toContainText(TEST_COPY.MESSAGES.PRODUCT_CREATED_SUCCESS);
@@ -20,8 +20,8 @@ test.describe('TS01_Products', () => {
 
     test("TC02. Fail to Create a Product: product name is empty", async ({ productPage }) => {
         const productWithoutName = {
-            ...TEST_DATA.PRODUCT,
-            NAME: "" // We omit the name
+            ...TEST_DATA.product,
+            name: "" // We omit the name
         };
 
         await productPage.createProduct(productWithoutName, TEST_COPY.STATUS.AVAILABLE);

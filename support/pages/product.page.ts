@@ -43,9 +43,10 @@ export class ProductPage {
         await this.addNewProductButton.click();
     }
 
-    async clickUploadImage() {
-        await this.uploadImageButton.click();
-    }
+    // TIP: Upload image is not needed for this test
+    /*  async clickUploadImage() {
+         await this.uploadImageButton.click();
+     } */
 
     async uploadImage(imagePath: string) {
         await this.uploadImageInput.setInputFiles(imagePath);
@@ -89,13 +90,12 @@ export class ProductPage {
         return this.successNotification
     }
 
-    async createProduct(product: TestData['PRODUCT'], status: 'Available' | 'Unavailable') {
+    async createProduct(product: TestData['product'], status: 'Available' | 'Unavailable') {
         await this.clickAddNewProduct();
-        await this.clickUploadImage();
-        if (product.IMAGE_PATH) await this.uploadImage(product.IMAGE_PATH);
-        if (product.NAME) await this.fillProductName(product.NAME);
-        if (product.DESCRIPTION) await this.fillProductDescription(product.DESCRIPTION);
-        if (product.PRICE) await this.fillProductPrice(product.PRICE);
+        if (product.imagePath) await this.uploadImage(product.imagePath);
+        if (product.name) await this.fillProductName(product.name);
+        if (product.description) await this.fillProductDescription(product.description);
+        if (product.price) await this.fillProductPrice(product.price);
         await this.selectCategory();
         await this.setStatus(status);
         await this.saveProduct();
