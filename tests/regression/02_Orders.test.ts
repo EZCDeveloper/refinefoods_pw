@@ -2,7 +2,6 @@ import { TEST_DATA } from '../../fixtures/data/test-data';
 import { URL } from '../../fixtures/data/url-data';
 import { test } from '../../fixtures/myFixtures/allFixtures';
 import { expect } from '@playwright/test';
-import fs from 'fs';
 
 
 test.describe('TS01_Orders', () => {
