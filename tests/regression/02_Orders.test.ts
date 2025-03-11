@@ -22,7 +22,13 @@ test.describe('TS01_Orders', () => {
         })
 
     test("TC-002: Verify That Exporting Generates a CSV File Correctly",
-        async ({ orderPage, page }) => {
+        async ({ orderPage }) => {
             await orderPage.exportCSV();
+        })
+
+    test('TC-003: Verify That the CSV Content Is Correct',
+        async ({ orderPage }) => {
+            const filePath = await orderPage.exportCSV();
+            orderPage.verifyCsvContent(filePath);
         })
 })

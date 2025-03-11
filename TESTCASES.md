@@ -64,8 +64,8 @@
 
 1.  Click on the **"Export to CSV"** button.
 2.  Download and open the CSV file.
-3.  Verify that the first row contains the correct headers (`Order ID, Customer, Date, Total`).
-4.  Verify that each row contains valid order information.
+3.  Verify that the first row contains the correct headers (`id, amount, orderNumber, status, store, user`).
+4.  Verify that exists at least 1 order. 
 
 * * * * *
 
