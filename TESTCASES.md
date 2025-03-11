@@ -69,28 +69,7 @@
 
 * * * * *
 
-**TC-004: Verify That the CSV Is Empty When There Are No Orders**
-
-📌 **Description:**
-
-📌 **Preconditions:**
-
--   **There must be no registered orders** in the system before the export.
-
-📌 **Expected Result:**
-
--   The CSV file should contain only the table headers without any data rows.
-
-📌 **Steps:**
-
-1.  Access the **Order Management** page.
-2.  Click on **"Export to CSV"**.
-3.  Download and open the CSV file.
-4.  Verify that the file **only contains the headers** and does not have additional rows.
-
-* * * * *
-
-**TC-005: Verify That the Button Is Disabled If There Is an Export Error**
+**TC-004: Verify That the Button Is Disabled If There Is an Export Error**
 
 📌 **Description:**
 

@@ -24,7 +24,7 @@ export class OrderPage {
         return filePath;
     }
 
-    verifyCsvContent(filePath: string): void {
+    verifyCsvContent(filePath: string, expectedHeaders: string[]): void {
         const csvContent = fs.readFileSync(filePath, 'utf-8');
         const csvRows = csvContent.trim().split('\n');
 
@@ -32,14 +32,13 @@ export class OrderPage {
         const headers = csvRows[0].split(',').map(header =>
             header.trim().replace(/^"|"$/g, '').toLowerCase()
         );
-        expect(headers).toEqual(['id', 'amount', 'ordernumber', 'status', 'store', 'user']);
+        expect(headers).toEqual(expectedHeaders.map(h => h.toLowerCase()));;
 
         // Check at least one order exists (more than just the header row)
         expect(csvRows.length).toBeGreaterThan(1);
 
         // Optional: Basic data validation
         const dataRow = csvRows[1].split(',').map(cell => cell.trim().replace(/^"|"$/g, ''));
-        expect(dataRow.length).toBe(6);
+        expect(dataRow.length).toBe(expectedHeaders.length);
     }
-
 }

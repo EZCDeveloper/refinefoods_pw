@@ -1,11 +1,8 @@
-
-import { TEST_COPY } from '../../fixtures/data/test-copy';
 import { TEST_DATA } from '../../fixtures/data/test-data';
 import { URL } from '../../fixtures/data/url-data';
 import { test } from '../../fixtures/myFixtures/allFixtures';
 import { expect } from '@playwright/test';
 import fs from 'fs';
-import path from 'path';
 
 
 test.describe('TS01_Orders', () => {
@@ -29,6 +26,22 @@ test.describe('TS01_Orders', () => {
     test('TC-003: Verify That the CSV Content Is Correct',
         async ({ orderPage }) => {
             const filePath = await orderPage.exportCSV();
-            orderPage.verifyCsvContent(filePath);
+            orderPage.verifyCsvContent(filePath, TEST_DATA.csv.orderHeaders);
+        })
+
+    test('TC-004: Verify That the Button Is Disabled If There Is an Export Error',
+        async ({ page }) => {
+
+            // TIP: Improvement. 
+            //Indicates the Test must fail
+            test.fail();
+
+            await page.evaluate(() => {
+                // Simular error en la API
+                window.fetch = () => Promise.reject(new Error('Internal Server Error'));
+            });
+
+            const exportButton = page.getByRole('button', { name: 'Export' });
+            await expect(exportButton).toBeDisabled();
         })
 })

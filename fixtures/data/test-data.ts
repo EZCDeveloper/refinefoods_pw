@@ -7,6 +7,9 @@ export interface TestData {
     imagePath: string;
     description: string;
     price: string;
+  },
+  csv: {
+    orderHeaders: string[];
   };
 }
 
@@ -17,4 +20,7 @@ export const TEST_DATA: TestData = {
     description: 'Delicious Pizza with pepperoni',
     price: "15",
   },
+  csv: {
+    orderHeaders: ['id', 'amount', 'orderNumber', 'status', 'store', 'user']
+  }
 };
