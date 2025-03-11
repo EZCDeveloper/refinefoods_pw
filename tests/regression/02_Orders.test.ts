@@ -36,7 +36,7 @@ test.describe('TS01_Orders', () => {
             test.fail();
 
             await page.evaluate(() => {
-                // Simular error en la API
+                // Simulate API error
                 window.fetch = () => Promise.reject(new Error('Internal Server Error'));
             });
 
