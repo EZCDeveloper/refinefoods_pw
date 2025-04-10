@@ -1,16 +1,19 @@
 /*-- Test Data TEMPLATE for Use in Tests --*/
 
 // Interface for Test Data
+export interface Product {
+  name: string;
+  imagePath: string;
+  description: string;
+  price: string;
+}
+export interface CSV {
+  orderHeaders: string[];
+}
+
 export interface TestData {
-  product: {
-    name: string;
-    imagePath: string;
-    description: string;
-    price: string;
-  },
-  csv: {
-    orderHeaders: string[];
-  };
+  product: Product;
+  csv: CSV;
 }
 
 export const TEST_DATA: TestData = {
